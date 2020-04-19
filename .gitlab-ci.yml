@@ -10,6 +10,6 @@ build:
     services:
         - docker:dind
     script:
-        - docker build -t $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/MyApi ./MyApi/
+        - docker build -t $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/myapi ./MyApi/
         - docker login -u gitlab-ci:token $CI_BUILD_TOKEN $CI_REGISTRY
-        - docker push $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/MyApi
+        - docker push $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/myapi
