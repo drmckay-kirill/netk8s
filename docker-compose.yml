@@ -13,7 +13,7 @@ services:
     volumes:
       - ./config/gitlab:/etc/gitlab
       - gitlab-data:/var/opt/gitlab
-      - ./logs:/var/log/gitlab
+      - gitlab-log:/var/log/gitlab
     networks:
       - gitlab
 
@@ -29,6 +29,7 @@ services:
 
 volumes:
     gitlab-data:
+    gitlab-log:
 
 networks:
     gitlab:
