@@ -6,7 +6,7 @@ build:
     stage: build
     when: manual
     script:
-        - docker-build -t $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/MyApi ./MyApi/
+        - docker build -t $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/MyApi ./MyApi/
 
 push:
     stage: push
