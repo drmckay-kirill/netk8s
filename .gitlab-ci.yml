@@ -1,19 +1,15 @@
+image: docker:latest
+
 stages:
     - build
-    - push
 
 build:
-    stage: build
+    stage: build  
     allow_failure: false
     when: manual
+    services:
+        - docker:dind
     script:
         - docker build -t $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/MyApi ./MyApi/
-
-push:
-    stage: push
-    allow_failure: false
-    when: manual
-    before_script:
         - docker login -u gitlab-ci:token $CI_BUILD_TOKEN $CI_REGISTRY
-    script:
-        - docker push $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/MyApi   
+        - docker push $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/MyApi
