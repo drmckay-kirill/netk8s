@@ -4,3 +4,5 @@
 2. or use free GitLab (change GitLab URL to yours)\
 `git remote add gitlab git@gitlab.com:drmckay-kirill/netk8s.git`\
 `git push gitlab`
+3. Go to Pipelines page and start manual build job\
+Then check Registry page for new image
