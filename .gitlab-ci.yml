@@ -1,0 +1,17 @@
+stages:
+    - build
+    - push
+
+build:
+    stage: build
+    when: manual
+    script:
+        - docker-build -t $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/MyApi ./MyApi/
+
+push:
+    stage: push
+    when: manual
+    before_script:
+        - docker login -u gitlab-ci:token $CI_BUILD_TOKEN $CI_REGISTRY
+    script:
+        - docker push $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/MyApi   

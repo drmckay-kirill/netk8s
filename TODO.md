@@ -1,2 +1,2 @@
 1. Dockerfile+
-2. Local GitLab with registry / CI_CD: build & push to registry
+2. CI/CD: build & push to registry
