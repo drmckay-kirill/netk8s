@@ -4,12 +4,14 @@ stages:
 
 build:
     stage: build
+    allow_failure: false
     when: manual
     script:
         - docker build -t $CI_REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/MyApi ./MyApi/
 
 push:
     stage: push
+    allow_failure: false
     when: manual
     before_script:
         - docker login -u gitlab-ci:token $CI_BUILD_TOKEN $CI_REGISTRY
