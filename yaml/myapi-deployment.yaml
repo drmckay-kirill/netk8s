@@ -21,7 +21,7 @@ spec:
         spec:
             containers:
             -   name: my-api
-                image: drmckay-kirill/netk8s/myapi
+                image: registry.gitlab.com/drmckay-kirill/netk8s/myapi
                 ports:
                 -   containerPort: 5000
             imagePullSecrets:
