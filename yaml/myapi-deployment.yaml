@@ -23,7 +23,9 @@ spec:
             -   name: my-api
                 image: registry.gitlab.com/drmckay-kirill/netk8s/myapi
                 ports:
-                -   containerPort: 5000
+                -   name: main-port
+                    containerPort: 5000
+                    hostPort: 5000
                 resources:
                     requests:
                         memory: "64Mi"
@@ -31,5 +33,17 @@ spec:
                     limits:
                         memory: "256Mi"
                         cpu: "200m"
+                livenessProbe:
+                    httpGet:
+                        path: /probe/live
+                        port: main-port
+                    failureThreshold: 1
+                    periodSeconds: 15
+                startupProbe:
+                    httpGet:
+                        path: /probe/live
+                        port: main-port
+                    failureThreshold: 3
+                    periodSeconds: 10
             imagePullSecrets:
             -   name: gitlab-cred
