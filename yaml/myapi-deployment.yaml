@@ -35,13 +35,13 @@ spec:
                         cpu: "200m"
                 livenessProbe:
                     httpGet:
-                        path: /probe/live
+                        path: /api/Probe/live
                         port: main-port
                     failureThreshold: 1
-                    periodSeconds: 15
+                    periodSeconds: 5
                 startupProbe:
                     httpGet:
-                        path: /probe/live
+                        path: /api/Probe/live
                         port: main-port
                     failureThreshold: 3
                     periodSeconds: 10
