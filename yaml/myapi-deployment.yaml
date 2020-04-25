@@ -20,10 +20,10 @@ spec:
                 app: my-api
         spec:
             containers:
-                name: my-api
+            -   name: my-api
                 image: drmckay-kirill/netk8s/myapi
                 imagePullSecrets:
-                    name: gitlab-cred
+                -   name: gitlab-cred
                 ports:
-                    containerPort: 5000
+                -   containerPort: 5000
             
