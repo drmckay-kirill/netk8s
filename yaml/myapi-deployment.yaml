@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: my-api-deployment
+    labels:
+        app: my-api
+spec:
+    replicas: 5
+    strategy:
+        type: RollingUpdate
+        rollingUpdate:
+            maxSurge: 1
+            maxUnavailable: 1
+    selector:
+        matchLabels:
+            app: my-api
+    template:
+        metadata:
+            labels:
+                app: my-api
+        spec:
+            containers:
+                name: my-api
+                image: drmckay-kirill/netk8s/myapi
+                imagePullSecrets:
+                    name: gitlab-cred
+                ports:
+                    containerPort: 5000
+            
