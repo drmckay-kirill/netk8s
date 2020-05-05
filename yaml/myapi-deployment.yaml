@@ -25,6 +25,17 @@ spec:
                 ports:
                 -   name: main-port
                     containerPort: 5000
+                env:
+                -   name: ASPNETCORE_URLS
+                    valueFrom:
+                        configMapKeyRef:
+                            name: my-api-conf
+                            key: urls
+                -   name: ASPNETCORE_ENVIRONMENT
+                    valueFrom:
+                        configMapKeyRef:
+                            name: my-api-conf
+                            key: environment
                 resources:
                     requests:
                         memory: "64Mi"

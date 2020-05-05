@@ -1,7 +1,11 @@
-1. Dockerfile+
-2. CI/CD: build & push to registry+
-3. Install kubernetes+
-4. Create deployment from files with replica=5 / rolling deployment+
-5. Scale replics+
-6. Limits/Requests+
-7. Ready/Live/Startup probes
+- Dockerfile+
+- CI/CD: build & push to registry+
+- Install kubernetes+
+- Create deployment from files with replica=5 / rolling deployment+
+- Scale replics+
+- Limits/Requests+
+- Ready/Live/Startup probes+
+- Get appsettings from env / env from config map
+- Get hostname in app
+- Service
+- Ingress 
