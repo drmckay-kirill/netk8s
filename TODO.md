@@ -5,7 +5,7 @@
 - Scale replics+
 - Limits/Requests+
 - Ready/Live/Startup probes+
-- Get appsettings from env / env from config map
-- Get hostname in app
-- Service
-- Ingress 
+- Get appsettings from env / env from config map+
+- Get hostname in app+
+- Service+
+- Ingress+

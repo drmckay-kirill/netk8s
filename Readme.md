@@ -20,12 +20,15 @@ Some commands:
 `sudo kubectl apply -f netk8s/yaml/my-api-deployment.yaml`\
 `sudo kubectl get deploy`
 7. Create service & ingress\
-`minikube addons enable ingress`\
-`sudo kubectl get pods -n kube-system`\
 `sudo kubectl apply -f netk8s/yaml/my-api-service.yaml`\
+Complete next steps if you want to expose deployment on local node `sudo kubectl expose deployment my-api-deployment --type=NodePort --port=5000`\
 `sudo kubectl get service my-api`\
 `sudo minikube service my-api --url`\
 `curl <service url>/api/Home`\
+
+
+Enable nginx ingress controller on minikube `minikube addons enable ingress`\
+`sudo kubectl get pods -n kube-system`\
 If you have DNS record, then put it to `my-api-ingress.yaml` instead of `my-api.io` and go to creating step\
 `sudo minikube ip`\
 Add to `/etc/hosts file` minikube ip and `my-api.io` url from ingress yaml\
