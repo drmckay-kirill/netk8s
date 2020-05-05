@@ -9,8 +9,9 @@ fix `k8s 1.18 needs conntrack installed` with `sudo apt install conntrack`
 `sudo kubectl create secret docker-registry gitlab-cred --docker-server=registry.gitlab.com --docker-username=drmckay-kirill --docker-password=<your-pword> --docker-email=drmckay-kirill@yandex.ru`\
 `sudo kubectl get secret gitlab-cred --output=yaml`
 5. Create ConfigMap\
-`sudo kubectl create configmap my-api-conf --from-file=netk8s/yaml/my-api.properties`\
-`sudo kubectl get configmaps my-api-conf -o yaml`
+`sudo kubectl apply -f netk8s/yaml/my-api-conf.yaml`\
+`sudo kubectl get configmaps my-api-conf -o yaml`\
+`sudo kubectl describe configmaps my-api-conf`
 6. Create Deployment, change image name in file to your own\
 `sudo kubectl create -f netk8s/yaml/my-api-deployment.yaml`\
 Some commands:
