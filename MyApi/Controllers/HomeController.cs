@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MyApi.Controllers
@@ -6,11 +7,14 @@ namespace MyApi.Controllers
     [ApiController]
     public class HomeController : ControllerBase
     {
+        private string HostnameEnvironmentVariable => "HOSTNAME";
+
         [HttpGet]
         [ProducesResponseType(typeof(string), 200)]
         public ActionResult HelloWorld()
         {
-            return Ok("Hello, world!");
+            var hostname = Environment.GetEnvironmentVariable(HostnameEnvironmentVariable); 
+            return Ok(hostname ?? "Hostname not found");
         }
     }
 }
