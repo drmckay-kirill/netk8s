@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: my-api
+spec:
+  rules:
+  - host: my-api.io
+    http:
+      paths:
+      - backend:
+          serviceName: my-api
+          servicePort: 5000
